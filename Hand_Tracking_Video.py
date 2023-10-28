@@ -49,10 +49,35 @@ with mp_hands.Hands(
                     indice_raiz_x = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_MCP].x * width
                     indice_raiz_y = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_MCP].y * height
                     
-                    indice = distancia(indice_punta_x,indice_punta_y,indice_raiz_x,indice_raiz_y)
-                    referencia = distancia(indice_raiz_x,indice_raiz_y,base_palma_x,base_palma_y)
+                    medio_punta_x = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP].x * width
+                    medio_punta_y = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP].y * height
+                    medio_raiz_x = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_MCP].x * width
+                    medio_raiz_y = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_MCP].y * height
                     
-                    print(indice / referencia)
+                    anular_punta_x = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP].x * width
+                    anular_punta_y = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP].y * height
+                    anular_raiz_x = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_MCP].x * width
+                    anular_raiz_y = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_MCP].y * height
+                    
+                    menique_punta_x = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP].x * width
+                    menique_punta_y = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP].y * height
+                    menique_raiz_x = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_MCP].x * width
+                    menique_raiz_y = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_MCP].y * height
+                    
+                    indice = distancia(indice_punta_x,indice_punta_y,indice_raiz_x,indice_raiz_y)
+                    referencia_indice = distancia(indice_raiz_x,indice_raiz_y,base_palma_x,base_palma_y)
+
+                    medio = distancia(medio_punta_x,medio_punta_y,medio_raiz_x,medio_raiz_y)
+                    referencia_medio = distancia(medio_raiz_x,medio_raiz_y,base_palma_x,base_palma_y)
+
+                    anular = distancia(anular_punta_x,anular_punta_y,anular_raiz_x,anular_raiz_y)
+                    referencia_anular = distancia(anular_raiz_x,anular_raiz_y,base_palma_x,base_palma_y)
+                    
+                    menique = distancia(menique_punta_x,menique_punta_y,menique_raiz_x,menique_raiz_y)
+                    referencia_menique = distancia(menique_raiz_x,menique_raiz_y,base_palma_x,base_palma_y)
+
+                    #################################
+                    print(menique / referencia_menique)
                     #################################
 
             cv2.imshow('Video', frame)
