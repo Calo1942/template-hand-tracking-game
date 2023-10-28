@@ -2,7 +2,7 @@ import cv2
 import mediapipe as mp
 
 a = 3
-nombre_video = "VID_test_01.py"
+nombre_video = "VID_test_01.mp4"
 
 # distancia entre dos puntos
 def distancia(x1, y1, x2, y2):
