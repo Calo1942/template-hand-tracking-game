@@ -1,2 +1,1 @@
 mediapipe==0.10.7
-pygame==2.5.2
